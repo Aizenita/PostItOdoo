@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- ======================================== -->
+    <!--   1) CUENTAS DE REDES SOCIALES          -->
+    <!-- ======================================== -->
+    <record id="social_account_facebook" model="postitodoo.socialaccount">
+        <field name="name">Cuenta Facebook Principal</field>
+        <field name="platform">facebook</field>
+        <field name="api_key">FB_ABC123</field>
+        <field name="is_active">True</field>
+    </record>
+
+    <record id="social_account_instagram" model="postitodoo.socialaccount">
+        <field name="name">Cuenta Instagram Empresa</field>
+        <field name="platform">instagram</field>
+        <field name="api_key">IG_KEY_456</field>
+        <field name="is_active">True</field>
+    </record>
+
+    <!-- ======================================== -->
+    <!--   2) PUBLICACIONES (POST)               -->
+    <!-- ======================================== -->
+    <record id="social_post_1" model="postitodoo.socialpost">
+        <field name="name">Primer Post en Facebook</field>
+        <field name="content">¡Hola a todos! Este es nuestro primer post programado desde Odoo.</field>
+        <field name="account_id" ref="social_account_facebook"/>
+        <field name="status">draft</field>
+        <field name="post_date">2025-03-10 10:00:00</field>
+    </record>
+
+    <record id="social_post_2" model="postitodoo.socialpost">
+        <field name="name">Post en Instagram</field>
+        <field name="content">¡Lanzamos nueva campaña de marketing!</field>
+        <field name="account_id" ref="social_account_instagram"/>
+        <field name="status">queued</field>
+        <field name="post_date">2025-03-11 11:30:00</field>
+    </record>
+
+    <!-- ======================================== -->
+    <!--   3) CAMPAÑAS                            -->
+    <!-- ======================================== -->
+    <record id="social_campaign_1" model="postitodoo.socialcampaign">
+        <field name="name">Campaña Primavera</field>
+        <field name="status">en_curso</field>
+        <field name="start_date">2025-03-01</field>
+        <field name="end_date">2025-06-01</field>
+        <field name="budget">5000</field>
+        <!-- Relacionamos la campaña con la publicación social_post_1 -->
+        <field name="post_ids" eval="[(4, ref('social_post_1'))]"/>
+    </record>
+
+    <record id="social_campaign_2" model="postitodoo.socialcampaign">
+        <field name="name">Campaña Verano</field>
+        <field name="status">draft</field>
+        <field name="start_date">2025-06-15</field>
+        <field name="end_date">2025-09-01</field>
+        <field name="budget">8000</field>
+        <!-- Relacionamos la campaña con la publicación social_post_2 -->
+        <field name="post_ids" eval="[(4, ref('social_post_2'))]"/>
+    </record>
+
+    <!-- ======================================== -->
+    <!--   4) HASHTAGS                            -->
+    <!-- ======================================== -->
+    <record id="social_hashtag_1" model="postitodoo.socialhashtag">
+        <field name="name">#Marketing</field>
+        <!-- Vinculamos con la primera publicación -->
+        <field name="post_ids" eval="[(4, ref('social_post_1'))]"/>
+    </record>
+
+    <record id="social_hashtag_2" model="postitodoo.socialhashtag">
+        <field name="name">#Novedades</field>
+        <!-- Vinculamos con la segunda publicación -->
+        <field name="post_ids" eval="[(4, ref('social_post_2'))]"/>
+    </record>
+
+    <!-- ======================================== -->
+    <!--   5) MÉTRICAS (METRIC)                   -->
+    <!-- ======================================== -->
+    <record id="social_metric_1" model="postitodoo.socialmetric">
+        <field name="post_id" ref="social_post_1"/>
+        <field name="likes">25</field>
+        <field name="comments">5</field>
+        <field name="shares">2</field>
+        <field name="impressions">120</field>
+        <field name="date">2025-03-11 12:00:00</field>
+    </record>
+
+    <record id="social_metric_2" model="postitodoo.socialmetric">
+        <field name="post_id" ref="social_post_2"/>
+        <field name="likes">80</field>
+        <field name="comments">12</field>
+        <field name="shares">4</field>
+        <field name="impressions">230</field>
+        <field name="date">2025-03-12 09:00:00</field>
+    </record>
+
+    <!-- ======================================== -->
+    <!--   6) COMENTARIOS                         -->
+    <!-- ======================================== -->
+    <record id="social_comment_1" model="postitodoo.socialcomment">
+        <field name="post_id" ref="social_post_1"/>
+        <field name="author">Usuario X</field>
+        <field name="content">¡Buen post!</field>
+        <field name="date">2025-03-11 12:30:00</field>
+    </record>
+
+    <record id="social_comment_2" model="postitodoo.socialcomment">
+        <field name="post_id" ref="social_post_2"/>
+        <field name="author">Cliente Y</field>
+        <field name="content">¿Cómo me contacto?</field>
+        <field name="date">2025-03-12 10:00:00</field>
+    </record>
+
+    <!-- ======================================== -->
+    <!--   7) PROGRAMACIONES (SCHEDULE)           -->
+    <!-- ======================================== -->
+    <record id="social_schedule_1" model="postitodoo.socialschedule">
+        <field name="post_id" ref="social_post_1"/>
+        <field name="scheduled_time">2025-03-09 09:00:00</field>
+        <field name="status">scheduled</field>
+    </record>
+
+    <record id="social_schedule_2" model="postitodoo.socialschedule">
+        <field name="post_id" ref="social_post_2"/>
+        <field name="scheduled_time">2025-03-10 08:00:00</field>
+        <field name="status">published</field>
+    </record>
+
+</odoo>

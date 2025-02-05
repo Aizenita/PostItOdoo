@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Grupo: Administrador de Redes Sociales -->
+        <record id="group_social_admin" model="res.groups">
+            <field name="name">Administrador de Redes Sociales</field>
+            <field name="category_id" ref="base.module_category_human_resources"/>
+        </record>
+
+        <!-- Grupo: Gestor de Contenidos -->
+        <record id="group_social_manager" model="res.groups">
+            <field name="name">Gestor de Contenidos</field>
+            <field name="category_id" ref="base.module_category_human_resources"/>
+        </record>
+
+        <!-- Grupo: Analista de Datos -->
+        <record id="group_social_analyst" model="res.groups">
+            <field name="name">Analista de Datos</field>
+            <field name="category_id" ref="base.module_category_human_resources"/>
+        </record>
+    </data>
+</odoo>

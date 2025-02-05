@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ================== MENÚS Y VISTAS PARA SOCIAL METRIC ================== -->
+
+    <record id="action_social_metric" model="ir.actions.act_window">
+    <field name="name">Métricas</field>
+    <field name="res_model">postitodoo.socialmetric</field>
+    <field name="view_mode">tree,form,graph,search</field>
+    </record>
+
+    <record id="view_social_metric_tree" model="ir.ui.view">
+    <field name="name">view.social.metric.tree</field>
+    <field name="model">postitodoo.socialmetric</field>
+    <field name="arch" type="xml">
+        <tree>
+            <field name="post_id"/>
+            <field name="likes"/>
+            <field name="impressions"/>
+            <field name="engagement"/>
+        </tree>
+    </field>
+    </record>
+
+    <record id="view_social_metric_graph" model="ir.ui.view">
+    <field name="name">view.social.metric.graph</field>
+    <field name="model">postitodoo.socialmetric</field>
+    <field name="arch" type="xml">
+        <graph>
+            <field name="date"/>
+            <field name="likes" type="measure"/>
+            <field name="impressions" type="measure"/>
+        </graph>
+    </field>
+    </record>
+
+    <record id="view_social_metric_search" model="ir.ui.view">
+        <field name="name">view.social.metric.search</field>
+        <field name="model">postitodoo.socialmetric</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="post_id"/>
+                <field name="date"/>
+                <field name="likes"/>
+                <field name="impressions"/>
+            </search>
+        </field>
+    </record>
+
+    <menuitem id="menu_social_metric" name="Métricas" parent="menu_social_root" sequence="4" action="action_social_metric"/>
+
+
+</odoo>

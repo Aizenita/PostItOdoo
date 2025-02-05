@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- =================MENÚ Y VISTAS PARA SOCIAL POST ============-->
+
+    <record id="action_social_post" model="ir.actions.act_window">
+        <field name="name">Publicaciones</field>
+        <field name="res_model">postitodoo.socialpost</field>
+        <field name="view_mode">tree,form,kanban,search</field>
+    </record>
+
+    <!-- =================FORM VIEW ============-->
+
+    <record id="view_social_post_form" model="ir.ui.view">
+            <field name="name">view.social.post.form</field>
+            <field name="model">postitodoo.socialpost</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="account_id"/>
+                            <field name="status"/>
+                            <field name="post_date"/>
+                        </group>
+                        <group>
+                            <field name="content" widget="html"/>
+                            <field name="image" widget="image"/>
+                        </group>
+                        <notebook>
+                            <page string="Métricas">
+                                <field name="metric_ids">
+                                    <tree>
+                                        <field name="likes"/>
+                                        <field name="impressions"/>
+                                        <field name="engagement"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+    <!-- =================TREE VIEW ============-->
+    <record id="view_social_post_tree" model="ir.ui.view">
+            <field name="name">view.social.post.tree</field>
+            <field name="model">postitodoo.socialpost</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="account_id"/>
+                    <field name="post_date"/>
+                    <field name="status"/>
+                </tree>
+            </field>
+        </record>
+
+    <!-- =================KANBAN VIEW ============-->
+    <record id="view_social_post_kanban" model="ir.ui.view">
+        <field name="name">view.social.post.kanban</field>
+        <field name="model">postitodoo.socialpost</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global">
+                            <field name="name"/>
+                            <field name="status"/>
+                            <field name="post_date"/>
+                            <div>
+                                <img t-att-src="image" class="oe_kanban_avatar"/>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="view_social_post_search" model="ir.ui.view">
+    <field name="name">view.social.post.search</field>
+    <field name="model">postitodoo.socialpost</field>
+    <field name="arch" type="xml">
+        <search>
+            <field name="name"/>
+            <field name="status"/>
+            <field name="post_date"/>
+            <field name="account_id"/>
+        </search>
+    </field>
+</record>
+
+    <menuitem id="menu_social_post" name="Publicaciones" parent="menu_social_root" sequence="3" action="action_social_post"/>
+
+
+</odoo>

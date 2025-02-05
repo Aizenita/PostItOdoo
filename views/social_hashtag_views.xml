@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="action_social_hashtag" model="ir.actions.act_window">
+        <field name="name">Hashtags</field>
+        <field name="res_model">postitodoo.socialhashtag</field>
+        <field name="view_mode">tree,form,kanban,search</field>
+    </record>
+
+    <record id="view_social_hashtag_tree" model="ir.ui.view">
+        <field name="name">view.social.hashtag.tree</field>
+        <field name="model">postitodoo.socialhashtag</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_social_hashtag_form" model="ir.ui.view">
+        <field name="name">view.social.hashtag.form</field>
+        <field name="model">postitodoo.socialhashtag</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_social_hashtag_search" model="ir.ui.view">
+        <field name="name">view.social.hashtag.search</field>
+        <field name="model">postitodoo.socialhashtag</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_social_hashtag_kanban" model="ir.ui.view">
+        <field name="name">view.social.hashtag.kanban</field>
+        <field name="model">postitodoo.socialhashtag</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global">
+                            <field name="name"/>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <menuitem id="menu_social_hashtag" name="Hashtags" parent="menu_social_root" sequence="7" action="action_social_hashtag"/>
+
+
+</odoo>

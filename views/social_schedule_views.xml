@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <!-- ================== MENÚS Y VISTAS PARA SOCIAL SCHEDULE ================== -->
+
+        <record id="action_social_schedule" model="ir.actions.act_window">
+        <field name="name">Programaciones</field>
+        <field name="res_model">postitodoo.socialschedule</field>
+        <field name="view_mode">tree,form,kanban,search</field>
+        </record>
+
+        <record id="view_social_schedule_tree" model="ir.ui.view">
+        <field name="name">view.social.schedule.tree</field>
+        <field name="model">postitodoo.socialschedule</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="post_id"/>
+                <field name="scheduled_time"/>
+                <field name="status"/>
+            </tree>
+        </field>
+        </record>
+
+        <record id="view_social_schedule_form" model="ir.ui.view">
+        <field name="name">view.social.schedule.form</field>
+        <field name="model">postitodoo.socialschedule</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="post_id"/>
+                        <field name="scheduled_time"/>
+                        <field name="status"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+        </record>
+
+        <record id="view_social_schedule_kanban" model="ir.ui.view">
+        <field name="name">view.social.schedule.kanban</field>
+        <field name="model">postitodoo.socialschedule</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global">
+                            <field name="post_id"/>
+                            <field name="scheduled_time"/>
+                            <field name="status"/>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+        </record>
+
+        <record id="view_social_schedule_search" model="ir.ui.view">
+        <field name="name">view.social.schedule.search</field>
+        <field name="model">postitodoo.socialschedule</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="post_id"/>
+                <field name="status"/>
+                <field name="scheduled_time"/>
+            </search>
+        </field>
+        </record>
+
+    <menuitem id="menu_social_schedule" name="Programaciones" parent="menu_social_root" sequence="9" action="action_social_schedule"/>
+
+
+</odoo>

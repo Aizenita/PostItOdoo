@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="action_social_campaign" model="ir.actions.act_window">
+    <field name="name">Campañas</field>
+    <field name="res_model">postitodoo.socialcampaign</field>
+    <field name="view_mode">tree,form,kanban,search</field>
+    </record>
+
+    <record id="view_social_campaign_tree" model="ir.ui.view">
+    <field name="name">view.social.campaign.tree</field>
+    <field name="model">postitodoo.socialcampaign</field>
+    <field name="arch" type="xml">
+        <tree>
+            <field name="name"/>
+            <field name="status"/>
+            <field name="start_date"/>
+            <field name="end_date"/>
+        </tree>
+    </field>
+    </record>
+
+    <record id="view_social_campaign_form" model="ir.ui.view">
+    <field name="name">view.social.campaign.form</field>
+    <field name="model">postitodoo.socialcampaign</field>
+    <field name="arch" type="xml">
+        <form>
+            <sheet>
+                <group>
+                    <field name="name"/>
+                    <field name="status"/>
+                    <field name="start_date"/>
+                    <field name="end_date"/>
+                    <field name="budget"/>
+                </group>
+                <notebook>
+                    <page string="Publicaciones">
+                        <field name="post_ids">
+                            <tree>
+                                <field name="name"/>
+                                <field name="status"/>
+                                <field name="post_date"/>
+                            </tree>
+                        </field>
+                    </page>
+                </notebook>
+            </sheet>
+        </form>
+    </field>
+    </record>
+
+    <record id="view_social_campaign_search" model="ir.ui.view">
+        <field name="name">view.social.campaign.search</field>
+        <field name="model">postitodoo.socialcampaign</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="status"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_social_campaign_kanban" model="ir.ui.view">
+        <field name="name">view.social.campaign.kanban</field>
+        <field name="model">postitodoo.socialcampaign</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global">
+                            <field name="name"/>
+                            <field name="status"/>
+                            <field name="start_date"/>
+                            <field name="end_date"/>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- ================== MENÚS Y VISTAS PARA SOCIAL CAMPAIGN ================== -->
+    <menuitem id="menu_social_campaign" name="Campañas" parent="menu_social_root" sequence="5" action="action_social_campaign"/>
+
+
+</odoo>

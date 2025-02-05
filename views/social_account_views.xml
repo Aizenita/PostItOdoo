@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ================== ACCIÓN ================== -->
+    <record id="action_social_account" model="ir.actions.act_window">
+        <field name="name">Cuentas de Redes Sociales</field>
+        <field name="res_model">postitodoo.socialaccount</field>
+        <field name="view_mode">tree,form,search</field>
+    </record>
+
+    <!-- ================== FORM ================== -->
+        <record id="view_social_account_form" model="ir.ui.view">
+            <field name="name">view.social.account.form</field>
+            <field name="model">postitodoo.socialaccount</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="platform"/>
+                            <field name="api_key" password="True"/>
+                            <field name="is_active"/>
+                        </group>
+                        <notebook>
+                            <page string="Publicaciones">
+                                <field name="post_ids">
+                                    <tree>
+                                        <field name="name"/>
+                                        <field name="status"/>
+                                        <field name="post_date"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+    <!-- ================== TREE================== -->
+    <record id="view_social_account_tree" model="ir.ui.view">
+            <field name="name">view.social.account.tree</field>
+            <field name="model">postitodoo.socialaccount</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="platform"/>
+                    <field name="is_active"/>
+                </tree>
+            </field>
+    </record>
+
+    <record id="view_social_account_search" model="ir.ui.view">
+        <field name="name">view.social.account.search</field>
+        <field name="model">postitodoo.socialaccount</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="platform"/>
+                <field name="is_active"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- ================== MENÚ PRINCIPAL ================== -->
+    <menuitem id="menu_social_root" name="Redes Sociales" sequence="1"/>
+
+    <!-- ================== MENÚS Y VISTAS PARA SOCIAL ACCOUNT ================== -->
+    <menuitem id="menu_social_account" name="Cuentas" parent="menu_social_root" sequence="2" action="action_social_account"/>
+
+
+</odoo>
