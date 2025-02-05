@@ -8,6 +8,7 @@
     'depends': ['base'],
     'data': [
         'security/security.xml',
+        "views/res_config_settings.xml",
         'security/ir.model.access.csv',
         'data/social_data.xml',
         'views/social_account_views.xml',
@@ -17,6 +18,7 @@
         'views/social_metric_views.xml',
         'views/social_post_views.xml',
         'views/social_schedule_views.xml',
+        'data/cron.xml'
     ],
     'installable': True,
     'application': True,

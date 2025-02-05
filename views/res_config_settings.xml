@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings" model="ir.ui.view">
+        <field name="name">my_integration.res.config.settings.view.form</field>
+        <field name="model">res.config.settings</field>  <!-- CORREGIDO -->
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+
+            <!-- Si no existe, primero creamos el bloque General Settings -->
+            <xpath expr="//div[contains(@class, 'settings')]" position="inside">
+                <div id="general_settings" class="app_settings_block" string="General Settings">
+                    <h2>General Settings</h2>
+                </div>
+            </xpath>
+
+            <!-- Ahora insertamos dentro de General Settings -->
+            <xpath expr="//div[@id='general_settings']" position="inside">
+                <div class="app_settings_block" data-string="My Integration" string="My Integration">
+                    <h2>My Integration</h2>
+                    <div class="row mt16 o_settings_container">
+                        <div class="col-12 col-lg-6">
+                            <div class="form-group">
+                                <label for="my_integration_api_key">API Key</label>
+                                <field name="my_integration_api_key" password="True"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+
+        </field>
+    </record>
+</odoo>
+

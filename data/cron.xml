@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="cron_auto_publish_social_posts" model="ir.cron">
+        <field name="name">Auto-publish queued Social Posts</field>
+        <!-- Referencia al modelo 'postitodoo.socialpost' -->
+        <field name="model_id" ref="model_postitodoo_socialpost"/>
+
+        <!-- Odoo ejecutará el contenido del campo 'code': `model.cron_post_queued_posts()` -->
+        <field name="state">code</field>
+        <field name="code">model.cron_post_queued_posts()</field>
+
+        <!-- Intervalo de ejecución -->
+        <field name="interval_number">5</field>
+        <field name="interval_type">minutes</field>
+
+        <!-- Podrías ajustar la prioridad, la hora de la primera ejecución, etc. -->
+        <field name="active">True</field>
+    </record>
+</odoo>

@@ -5,3 +5,4 @@ from . import SocialComment
 from . import SocialHashtag
 from . import SocialMetric
 from . import SocialSchedule
+from . import res_config_settings
