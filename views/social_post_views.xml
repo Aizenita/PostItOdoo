@@ -37,6 +37,12 @@
                                 </field>
                             </page>
                         </notebook>
+                        <!-- BOTÓN PARA CAMBIAR ESTADO A PUBLISHED -->
+                        <footer>
+                            <button name="action_post_facebook" type="object"
+                                    string="Publicar en Facebook" class="oe_highlight"/>
+                            <button special="cancel" string="Cerrar"/>
+                        </footer>
 
                     </sheet>
                 </form>
@@ -88,6 +94,21 @@
             <field name="status"/>
             <field name="post_date"/>
             <field name="account_id"/>
+
+            <!--Filtros personalizados -->
+            <filter name="filter_draft" string="Borrador" domain="[('status','=','draft')]"/>
+            <filter name="filter_published" string="Publicado" domain="[('status','=','published')]"/>
+            <filter name="filter_queued" string="Programado" domain="[('status','=','queued')]"/>
+
+            <separator/>
+            <group string="Agrupar por">
+                <filter name="group_status" string="Estado"
+                        domain="[]"
+                        context="{'group_by':'status'}"/>
+                <filter name="group_account_id" string="Cuenta"
+                        domain="[]"
+                        context="{'group_by':'account_id'}"/>
+            </group>
         </search>
     </field>
 </record>

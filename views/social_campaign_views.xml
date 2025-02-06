@@ -44,6 +44,15 @@
                         </field>
                     </page>
                 </notebook>
+
+                <footer>
+                    <button name="action_end_campaign" type="object"
+                            string="Finalizar"
+                            attrs="{'invisible': [('status','=','finalizada')]}"
+                            class="btn-primary"/>
+                    <button special="cancel" string="Cerrar"/>
+                </footer>
+
             </sheet>
         </form>
     </field>
@@ -58,6 +67,19 @@
                 <field name="status"/>
                 <field name="start_date"/>
                 <field name="end_date"/>
+                <!--Filtros personalizados -->
+                <filter name="filter_en_curso" string="En Curso" domain="[('status','=','en_curso')]"/>
+                <filter name="filter_finalizada" string="Finalizada" domain="[('status','=','finalizada')]"/>
+
+                <separator/>
+                <group string="Agrupar por">
+                    <filter name="group_status" string="Estado"
+                            domain="[]"
+                            context="{'group_by':'status'}"/>
+                    <filter name="group_start_date" string="Fecha Inicio"
+                            domain="[]"
+                            context="{'group_by':'start_date'}"/>
+                </group>
             </search>
         </field>
     </record>

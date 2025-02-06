@@ -62,6 +62,22 @@
                 <field name="post_id"/>
                 <field name="status"/>
                 <field name="scheduled_time"/>
+
+                <!--Filtros personalizados -->
+                <filter name="filter_scheduled" string="Programadas" domain="[('status','=','scheduled')]"/>
+                <filter name="filter_pending" string="Pendiente" domain="[('status','=','pending')]"/>
+                <filter name="filter_published" string="Publicadas" domain="[('status','=','published')]"/>
+
+                <separator/>
+                <group string="Agrupar por">
+                    <filter name="group_status" string="Estado"
+                            domain="[]"
+                            context="{'group_by':'status'}"/>
+                    <filter name="group_post_id" string="Publicacion"
+                            domain="[]"
+                            context="{'group_by':'post_id'}"/>
+                </group>
+
             </search>
         </field>
         </record>

@@ -18,3 +18,8 @@ class SocialCampaign(models.Model):
 
     # Relación One2many con SocialPost
     post_ids = fields.One2many('postitodoo.socialpost', 'campaign_id', string='Publicaciones de la campaña')
+
+def action_end_campaign(self):
+
+    for campaign in self:
+        campaign.status = 'finalizada'
