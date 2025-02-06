@@ -19,7 +19,7 @@
         'views/social_post_views.xml',
         'views/social_schedule_views.xml',
         'data/cron.xml',
-        'views/menu.xml'
+        'views/menu.xml',
     ],
     'installable': True,
     'application': True,

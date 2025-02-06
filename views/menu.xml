@@ -1,20 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <!-- Definir la acción para abrir la configuración de My Integration -->
-    <record id="action_my_integration_settings" model="ir.actions.act_window">
-        <field name="name">My Integration Settings</field>
+    <record id="action_social_post_settings" model="ir.actions.act_window">
+        <field name="name">Social Post</field>
         <field name="res_model">res.config.settings</field>
         <field name="view_mode">form</field>
-        <field name="view_id" ref="res_config_settings"/>  <!-- Usa el ID ya definido -->
         <field name="target">new</field>
-        <field name="context">{'module': 'my_integration'}</field>
+        <field name="context">{'module': 'postitodoo'}</field>
     </record>
 
     <!-- Crear el menú dentro de Configuración -->
-    <menuitem id="menu_my_integration_settings"
-              name="My Integration"
+    <menuitem id="menu_social_post_settings"
+              name="Social Post"
               parent="base.menu_config"
-              sequence="10"
-              action="action_my_integration_settings"/>
+              sequence="10"/>
 </odoo>
-
