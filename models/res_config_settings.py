@@ -24,3 +24,16 @@ class ResConfigSettings(models.TransientModel):
         super().set_values()
         ICPSudo = self.env["ir.config_parameter"].sudo()
         ICPSudo.set_param("my_integration.api_key", self.my_integration_api_key or "")
+
+    def action_open_my_integration_settings(self):
+        """ Método que abre la configuración del módulo en una vista específica """
+        return {
+            'type': 'ir.actions.act_window',
+            'name': 'My Integration Settings',
+            'res_model': 'res.config.settings',
+            'view_mode': 'form',
+            'view_id': self.env.ref('postitodoo.res_config_settings').id,
+            'target': 'new',
+        }
+
+

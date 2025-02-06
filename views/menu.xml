@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Definir la acción para abrir la configuración de My Integration -->
+    <record id="action_my_integration_settings" model="ir.actions.act_window">
+        <field name="name">My Integration Settings</field>
+        <field name="res_model">res.config.settings</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="res_config_settings"/>  <!-- Usa el ID ya definido -->
+        <field name="target">new</field>
+        <field name="context">{'module': 'my_integration'}</field>
+    </record>
+
+    <!-- Crear el menú dentro de Configuración -->
+    <menuitem id="menu_my_integration_settings"
+              name="My Integration"
+              parent="base.menu_config"
+              sequence="10"
+              action="action_my_integration_settings"/>
+</odoo>
+
