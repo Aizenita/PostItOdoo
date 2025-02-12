@@ -4,7 +4,7 @@
     <record id="action_social_campaign" model="ir.actions.act_window">
     <field name="name">Campañas</field>
     <field name="res_model">postitodoo.socialcampaign</field>
-    <field name="view_mode">tree,form,kanban,search</field>
+    <field name="view_mode">tree,form,kanban,search,calendar</field>
     </record>
 
     <record id="view_social_campaign_tree" model="ir.ui.view">
@@ -100,6 +100,17 @@
                     </t>
                 </templates>
             </kanban>
+        </field>
+    </record>
+    <record id="view_social_schedule_calendar" model="ir.ui.view">
+        <field name="name">postitodoo.socialcampaign.calendar</field>
+        <field name="model">postitodoo.socialcampaign</field>
+        <field name="arch" type="xml">
+            <calendar string="Calendario Programación de Publicaciones" date_start="start_date"
+                      date_stop="end_date" color="status">
+                <field name="name"/>
+                <field name="post_ids"/>
+            </calendar>
         </field>
     </record>
 
