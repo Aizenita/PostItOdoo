@@ -1,5 +1,4 @@
-from odoo import fields, models
-
+from odoo import fields,models
 
 class SocialCampaign(models.Model):
     _name = 'postitodoo.socialcampaign'

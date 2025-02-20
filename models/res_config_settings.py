@@ -26,7 +26,7 @@ class ResConfigSettings(models.TransientModel):
         ICPSudo.set_param("my_integration.api_key", self.my_integration_api_key or "")
 
     def action_open_my_integration_settings(self):
-        """ Método que abre la configuración del módulo en una vista específica """
+        """ Metodo que abre la configuración del módulo en una vista específica """
         return {
             'type': 'ir.actions.act_window',
             'name': 'My Integration Settings',
