@@ -5,7 +5,7 @@
         <record id="action_social_schedule" model="ir.actions.act_window">
         <field name="name">Programaciones</field>
         <field name="res_model">postitodoo.socialschedule</field>
-        <field name="view_mode">tree,form,kanban,search,calendar</field>
+        <field name="view_mode">tree,form,kanban,search</field>
         </record>
 
         <record id="view_social_schedule_tree" model="ir.ui.view">
@@ -81,19 +81,6 @@
             </search>
         </field>
         </record>
-    <record id="view_social_schedule_calendar" model="ir.ui.view">
-        <field name="name">postitodoo.socialschedule.calendar</field>
-        <field name="model">postitodoo.socialschedule</field>
-        <field name="arch" type="xml">
-            <calendar
-                    string="Calendario Programación de Publicaciones"
-                    date_start="scheduled_time"
-                    color="status">
-                <field name="name"/>
-                <field name="scheduled_time"/>
-            </calendar>
-        </field>
-    </record>
 
     <menuitem id="menu_social_schedule" name="Programaciones" parent="menu_social_root" sequence="9" action="action_social_schedule"/>
 
